@@ -43,14 +43,12 @@ todoRegister.addEventListener('click', () =>{
   });
 });
 // const doneTodo = function(doneBtn){}
-
 const doneTodo = (doneBtn) =>{
   const doneTodo = doneBtn.closest('li') //クリックされた完了ボタンから１番近いliタグを取得する
   doneTodo.setAttribute('class','done-item'); //削除ボタンのイベントの条件分岐のための準備
   doneList.appendChild(doneTodo); //Doneリストの子要素に取得したliタグを挿入
   doneBtn.remove(); //Doneリストに移動したliタグの完了ボタンを消す
 }
-
 const deletTodo = (delBtn) =>{
   const del_comfirm = this.confirm('本当に削除しますか？') //誤って削除しないかの確認
   if(del_comfirm === true){ //上記の確認でOKが押されたら
