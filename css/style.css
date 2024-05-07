@@ -46,7 +46,7 @@ input[type = "checkbox"] {
   transform: scale(1.5); /* チェックボックスのサイズを2倍にする */
 }
 
-@media screen and (max-width:426px){
+@media screen and (max-width:526px){
   *{
     font-size: 14px;
   }
@@ -63,5 +63,4 @@ input[type = "checkbox"] {
   h1 {
     background-color: rgb(13, 160, 209);
   }
-  
 }
