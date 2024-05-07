@@ -45,3 +45,23 @@ ul li {
 input[type = "checkbox"] {
   transform: scale(1.5); /* チェックボックスのサイズを2倍にする */
 }
+
+@media screen and (max-width:426px){
+  *{
+    font-size: 14px;
+  }
+  .output-flex{
+    display:flex;
+    flex-flow: column;
+  }
+  .output-flex > div {   /*〇〇 > 〇〇  直下の子要素を適用される*/
+    width: 100%;
+    margin: 2% auto;
+    text-align: center;
+    background-color: rgb(13, 160, 209);
+  }
+  h1 {
+    background-color: rgb(13, 160, 209);
+  }
+  
+}
