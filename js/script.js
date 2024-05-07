@@ -2,6 +2,7 @@ const todoValue = document.getElementById('js-todo-ttl'); //入力フォーム�
 const todoRegister = document.getElementById('js-register-btn'); //登録するボタンの取得
 const todoList = document.getElementById('js-todo-list'); //未完リストのulの取得
 const doneList = document.getElementById('js-done-list'); //完了リストのulの取得
+const important = document.getElementById('important'); //重要チェックボックスの取得
 
 todoRegister.addEventListener('click', () =>{
   if (todoValue.value !== ''){ //からのフォームは追加しないif文
@@ -15,8 +16,16 @@ todoRegister.addEventListener('click', () =>{
     pTag.appendChild(todo);
     liTag.appendChild(pTag);
     todoList.appendChild(liTag);
+    
+    if (important.checked){
+      liTag.style.backgroundImage = "url('../png/important.png')";
+      liTag.style.backgroundSize = "100px 100px";
+      liTag.style.backgroundRepeat = "no-repeat";
+      liTag.style.backgroundPosition = "center";
+      liTag.style.backgroundColor = "pink"
+    }
 
-    //ボタンを入れる用のdivタグを追加
+   //ボタンを入れる用のdivタグを追加
     const btn_box = document.createElement('div'); //divタグの準備
     btn_box.setAttribute('class','btn-box'); //class名の指定
     liTag.appendChild(btn_box); //liタグの子要素に挿入
@@ -46,6 +55,7 @@ todoRegister.addEventListener('click', () =>{
     });
   }
 });
+
 // const doneTodo = function(doneBtn){}
 const doneTodo = (doneBtn) =>{
   const doneTodo = doneBtn.closest('li') //クリックされた完了ボタンから１番近いliタグを取得する
