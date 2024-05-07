@@ -18,7 +18,7 @@ todoRegister.addEventListener('click', () =>{
     todoList.appendChild(liTag);
     
     if (important.checked){
-      liTag.style.backgroundImage = "url('../png/important.png')";
+      liTag.style.backgroundImage = "url('./png/important.png')";
       liTag.style.backgroundSize = "100px 100px";
       liTag.style.backgroundRepeat = "no-repeat";
       liTag.style.backgroundPosition = "center";
