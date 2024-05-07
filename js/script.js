@@ -4,43 +4,47 @@ const todoList = document.getElementById('js-todo-list'); //未完リストのul
 const doneList = document.getElementById('js-done-list'); //完了リストのulの取得
 
 todoRegister.addEventListener('click', () =>{
-  const todo = document.createTextNode(todoValue.value); //入力データを取得
-  const liTag = document.createElement('li'); //liタグを作る準備
-  const pTag  = document.createElement('p'); //pタグを作る準備
+  if (todoValue.value !== ''){ //からのフォームは追加しないif文
 
-  //ulタグの中にli>pの構造を作る
-  pTag.appendChild(todo);
-  liTag.appendChild(pTag);
-  todoList.appendChild(liTag);
+    const todo = document.createTextNode(todoValue.value); //入力データを取得
+    const liTag = document.createElement('li'); //liタグを作る準備
+    const pTag  = document.createElement('p'); //pタグを作る準備
+    
+    todoValue.value = ''; // フォームを初期状態（空）にする
+    //ulタグの中にli>pの構造を作る
+    pTag.appendChild(todo);
+    liTag.appendChild(pTag);
+    todoList.appendChild(liTag);
 
-  //ボタンを入れる用のdivタグを追加
-  const btn_box = document.createElement('div'); //divタグの準備
-  btn_box.setAttribute('class','btn-box'); //class名の指定
-  liTag.appendChild(btn_box); //liタグの子要素に挿入
+    //ボタンを入れる用のdivタグを追加
+    const btn_box = document.createElement('div'); //divタグの準備
+    btn_box.setAttribute('class','btn-box'); //class名の指定
+    liTag.appendChild(btn_box); //liタグの子要素に挿入
 
-  //完了ボタン（id名；js-done-btn）
-  const doneBtn = document.createElement('button');
-  doneBtn.setAttribute('id','js-done-btn');
-  doneBtn.innerHTML = '完了'
-  btn_box.appendChild(doneBtn);
+    //完了ボタン（id名；js-done-btn）
+    const doneBtn = document.createElement('button');
+    doneBtn.setAttribute('id','js-done-btn');
+    doneBtn.innerHTML = '完了'
+    btn_box.appendChild(doneBtn);
 
-  //削除ボタン（id名；js-del-btn）
-  const delBtn = document.createElement('button');
-  delBtn.setAttribute('id','js-del-btn');
-  delBtn.innerHTML = '削除'
-  btn_box.appendChild(delBtn);
+    //削除ボタン（id名；js-del-btn）
+    const delBtn = document.createElement('button');
+    delBtn.setAttribute('id','js-del-btn');
+    delBtn.innerHTML = '削除'
+    btn_box.appendChild(delBtn);
 
-  //完了機能の追加
-  doneBtn.addEventListener('click',() =>{
-    //処理を関数で呼び出す
-    doneTodo(doneBtn);
-  });
+    //完了機能の追加
+    doneBtn.addEventListener('click',() =>{
+      //処理を関数で呼び出す
+      doneTodo(doneBtn);
+    });
 
-  //削除機能の追加
-  delBtn.addEventListener('click',() =>{
-    //処理を関数で呼び出す
-    deletTodo(delBtn);
-  });
+    //削除機能の追加
+    delBtn.addEventListener('click',() =>{
+      //処理を関数で呼び出す
+      deletTodo(delBtn);
+    });
+  }
 });
 // const doneTodo = function(doneBtn){}
 const doneTodo = (doneBtn) =>{
