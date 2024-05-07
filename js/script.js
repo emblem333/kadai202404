@@ -23,6 +23,7 @@ todoRegister.addEventListener('click', () =>{
       liTag.style.backgroundRepeat = "no-repeat";
       liTag.style.backgroundPosition = "center";
       liTag.style.backgroundColor = "pink"
+      document.getElementById("important").checked = false;
     }
 
    //ボタンを入れる用のdivタグを追加
